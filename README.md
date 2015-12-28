@@ -5,7 +5,7 @@
 #####这里是python版本[AndroidMultiChannelBuildTool](https://github.com/GavinCT/AndroidMultiChannelBuildTool)
 
 ##使用方法
-1，在javaIDE创建项目，将`ChangeAPKChannel.java`文件和`jar`文件拷贝到项目中，适当修改代码，打包插件部分即可；
+1，在javaIDE创建项目，将`ChangeAPKChannel.java`文件和`jar`文件拷贝到项目中，适当修改代码，打包插件部分即可；   
 2，APK需要增加部分代码，详情请见[AndroidMultiChannelBuildTool](https://github.com/GavinCT/AndroidMultiChannelBuildTool)  
 3，项目运行后，会出现一个弹窗，将要签名和打渠道的apk拖进窗口里，点击按钮即可签名并添加渠道信息。
 
