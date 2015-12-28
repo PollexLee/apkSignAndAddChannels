@@ -43,8 +43,8 @@ class ChangeAPKChannel extends TransferHandler {
     public boolean importData(JComponent c, Transferable t) {
         try {
             List files = (List) t.getTransferData(DataFlavor.javaFileListFlavor);
-            //FileReader   reader   =   new   FileReader((File)files.get(0)); 
-            //textarea.read(reader,   null); 
+            //FileReader   reader   =   new   FileReader((File)files.get(0));
+            //textarea.read(reader,   null);
 
             Iterator iterator = files.iterator();
             while (iterator.hasNext()) {
@@ -56,7 +56,7 @@ class ChangeAPKChannel extends TransferHandler {
                 }
             }
 
-            //reader.close(); 
+            //reader.close();
             return true;
         } catch (UnsupportedFlavorException ufe) {
             ufe.printStackTrace();
@@ -102,8 +102,8 @@ class ChangeAPKChannel extends TransferHandler {
                             fileName = entries.nextElement().getName().trim();
                             if (fileName.contains("META-INF")) {
                                 i = 1;
-                                if (fileName.contains("META-INF/qwbcgchannel_")) {
-                                    fileName = fileName.substring(fileName.indexOf("qwbcgchannel_") + 13, fileName.length());
+                                if (fileName.contains("META-INF/channel_")) {
+                                    fileName = fileName.substring(fileName.indexOf("channel_") + 13, fileName.length());
                                     JOptionPane.showMessageDialog(null, "已有渠道：" + fileName);
                                     return;
                                 }
@@ -119,9 +119,9 @@ class ChangeAPKChannel extends TransferHandler {
                             new Thread(new Runnable(){
                                 @Override
                                 public void run() {
-                                   textarea.setText("正在签名..."); 
+                                   textarea.setText("正在签名...");
                                 }
-                                
+
                             }).start();
                             Runtime runtime = Runtime.getRuntime();
                             String keystorePath = "";
@@ -172,7 +172,7 @@ class ChangeAPKChannel extends TransferHandler {
                         File infoFile = getFileFormParent(file, "info");
                         //获取info文件里面的包含channel_的渠道文件
                         ArrayList<File> channelFiles = getFilesFormParent(infoFile, "channel_");
-                        
+
                         //遍历channel文件
                         for (File channelFile : channelFiles) {
                             //创建一个放签名包的文件夹
@@ -213,8 +213,8 @@ class ChangeAPKChannel extends TransferHandler {
                                 deleteFiles(METAFile);
                                 System.out.println(METAFile);
                                 createFiles(path + "\\info/META-INF\\");
-                                System.out.println(path + "\\info\\META-INF\\qwbcgchannel_" + channel);
-                                createFile(path + "\\info\\META-INF\\qwbcgchannel_" + channel);
+                                System.out.println(path + "\\info\\META-INF\\channel_" + channel);
+                                createFile(path + "\\info\\META-INF\\channel_" + channel);
                                 ZipParameters parameters = new ZipParameters();
 
                                 newAPKZipFile.addFolder(METAFile, parameters);
